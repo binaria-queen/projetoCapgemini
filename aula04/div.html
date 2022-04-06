@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        * {
+            box-sizing: border-box;
+            padding: 100;
+        }
+
+        p {
+            color: black;
+        }
+
+        div {
+            border: 2px solid black;
+            border-right-style: solid;
+            width: 100%;
+            display: inline-block;
+            display: 70 px flex;
+        }
+       
+ 
+        div p {
+            color: green;
+        }
+
+        .esquerdo {
+            width: 48%;
+            background-color: whitesmoke;
+            border-right: 0;
+          
+            
+        }
+        .direito {
+            width: 50%;
+            background-color: burlywood;
+            border-right: 2;
+           
+        }
+        .container {
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-right-style: solid;
+            display: flex;
+        }
+        ol.uroman {
+            list-style-type: upper-roman;
+        }
+        ul.circle {
+	        list-style-type: circle;
+	    }
+    </style>
+</head>
+<body>
+   
+        <p style="text-align:center">LISTA DE COMPRAS</p>
+
+        <div class="container">
+            <div class="esquerdo">
+               <h3 style="text-align:center">PARA O CAFÉ</h3>
+                <p>
+                    <ul>
+                        <li>Café</li>
+                        <li>Pão</li>
+                        <li>Manteiga</li>
+                    </ul>
+
+                    <ul class="circle">
+                        <li>Café</li>
+                        <li>Pão</li>
+                        <li>Manteiga</li>
+                    </ul>
+                
+            </p>
+            </div>
+            <div class="direito">
+                <h3 style="text-align:center">MATERIAL DE LIMPEZA</h3>
+                    <p> 
+                        <ol>
+                            <li>Sabonete</li>
+                            <li>Desifetante</li>
+                            <li>Água sanitária</li>
+                        </ol>
+
+                        <ol class="uroman">
+                            <li>Sabonete</li>
+                            <li>Desifetante</li>
+                            <li>Água Sanitária</li>
+                        </ol>
+                    
+                    </p>
+            </div>
+        </div>
+</body>
+
+</html>

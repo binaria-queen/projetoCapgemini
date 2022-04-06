@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
+    
+
+</head>
+<body>
+    
+    <form action="#" method="POST">
+        <p class="position-relative fs-1 align-text-bottom">Cadastro de clientes</p>
+        <hr />
+        <br>
+
+        <label for = "nome">Nome</label>
+        <div class="form-label">
+            <input type="text" id="nome" placeholder="Informe nome" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "fone">Telefone</label>
+        <div class="container">
+            <input type="number" id="fone" placeholder="Informe numero de telefone" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" id="email" placeholder="Informe seu email" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "rua">Logradouro</label>
+        <div class="container">
+            <input type="text" id="rua" placeholder="Informe o nome da rua" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "bairro">Bairro</label>
+        <div class="container">
+            <input type="text" id="bairro" placeholder="Informe o seu bairro" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "cidade">Cidade</label>
+        <div class="container">
+            <input type="text" id="cidade" placeholder="Informe a sua cidade" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "cep">CEP</label>
+        <div class="container">
+            <input type="number" id="cep" placeholder="Informe numero do cep" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "limiteDeCredito">Qual o seu limite de crédito?</label>
+        <div class="container">
+            <input type="number" id="limiteDeCredito" placeholder="Informe limite" />
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <label for = "foto">Foto</label>
+        <div class="container">
+            <input type="file" placeholder="Informe a imagem" />
+
+            <hr />
+            <label id="dadosPessoais"></label>
+        </div>
+
+        <br>
+    </form>
+
+        <div>
+            <button onclick="onSubmit()">Gravar</button>
+            <button onclick="onSubmit()">Cancelar</button>
+        </div>
+       
+</body>
+
+</html>

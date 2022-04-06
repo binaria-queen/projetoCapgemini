@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/scriptformulario.js"></script>
+    <link rel="stylesheet" href="estiloformulario/estilocadastroform.html" />
+</head>
+
+<body onload="loadCategoria"()>
+    <h1> Consulta de preços </h1>
+    <select>
+        <option var="1">Sapatos</option>        
+        <option>Roupas</option>	
+    </select>
+    
+    <script> 
+        function loadCategoria() {
+            fetch("http://localhost:3000/categorias")
+                .then(x => x.test())
+                .then(cat => display(cat))
+            }
+    
+        function display(dados) {
+            let lista = JSON.parse(dados)
+            var opt = ""
+            for (let ob in lista) {
+                opt += "<option var =" lista [ob].id>" + lista[ob].nome + "</option>"
+            }
+            document.getElementById("categoria").innerHtml = opt;
+    
+    </script>
+
+    </body>
+</html>
+    

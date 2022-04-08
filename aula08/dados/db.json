@@ -1,0 +1,9 @@
+{
+    "produtos":[{
+            "id": 1,
+            "nome": "Feijoada",
+            "descricao": "Feijoada acompanhada de arroz branco, farofa crocante, salada do verão e couve refogada.",
+            "preco": "R$ 35.00",
+            "imagem": "./imagens/feijoada.png"
+        }]
+}

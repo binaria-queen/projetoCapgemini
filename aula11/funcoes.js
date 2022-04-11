@@ -1,21 +1,22 @@
-function soma(n1, n2){
+function soma(n1, n2) {
     let resultado = n1 + n2
+    console.log(resultado)
 }
-soma (10,20)
 
+//invocar a função
+soma(10, 20)
 
-
-function somaComRetorno(n1,n2) {
+function somaComRetorno(n1, n2) {
     let resultado = n1 + n2
     return resultado
 }
 
-var retorno = somaComRetorno(30,40)
+var retorno = somaComRetorno(30, 40)
 console.log(retorno)
 
 function somaArray(numeros) {
     let resultado = 0
-    for(let i = 0; i < numeros.length; i++){
+    for (let i = 0; i < numeros.length; i++) {
         resultado = resultado + numeros[i]
     }
     return resultado

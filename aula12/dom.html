@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .verde {color: green}
+        .gremio {color: blue}
+    </style>
+</head>
+<body>
+    <div>
+        <!--Criar elementos filho no evento do botão-->
+        <ol
+    </div>
+    <button onclick="criar()">Criar</button>
+
+    <script>
+        function criar(){
+            var parent = document.getElementsByTagName("div")[0]
+
+            var paragrafo = document.createElement("p")
+            paragrafo.innerHTML = "Saudações coloradas para todos"
+            paragrafo.className = "gremio"
+            parent.appendChild(paragrafo)
+
+            var listaFruta = document.createElement("ol");
+            listaFruta.innerHTML = "<li>Maça</li>"
+            listaFruta.innerHTML += "<li>Melancia</li>"
+            listaFruta.innerHTML += "<li>Mamão</li>"
+            listaFruta.appendChild("class", "verde")
+            parent.appendChild(listaFruta)
+
+            var listaTarefas = document.createElement("ul")
+            var li = document.createElement("li")
+            li.style.color = "green"
+            li.innerHTML = "Roçar grama"
+            listaTarefas.appendChild(li)
+            parent.appendChild(listaTarefas)
+        }
+    </script>
+</body>
+</html>

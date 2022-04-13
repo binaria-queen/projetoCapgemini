@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="estilos/style.css" />
+
+</head>
+<!--class da segunda div que eu inseri a imagem, caso der errado: row justify-content-center mt-5-->
+<body>
+    <div class="container-fluid">
+        <div class="form-image">
+            <img src="./imagem/undraw_My_current_location_re_whmt.png">
+        </div>
+            <section class="col-12 colsn-6 col-md-6">
+                <form class="form-container">
+                    <p class="text-center" style="font-size: 2rem; font-weight: 800;">Login</p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email ou usuário" onblur="limpaMsgNome()" required />
+                        <label id="msgNome"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Senha" required />
+                        <label id="msgSenha"></label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="">
+                        <label class="form-check-label">Lembre-me</label>
+                    </div>
+                    <div class="continue-button">
+                        <button onclick="onSubmit()" class="btn btn-dark btn-block">Entrar</button>
+                    </div>
+                    <p class="login-register-text">Ainda não tem uma conta?<a href="cadastro.js"> Cadastre-se aqui</a></p>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function limpaMsgNome() {
+            var nome = document.getElementById("nome");
+            if (nome.value != "") {
+                document.getElementById("msgNome").innerHTML = "";
+            }
+        }
+
+        function onSubmit() {
+            var nome = document.getElementById("nome");
+            if (nome.value === "") {
+                document.getElementById("msgNome").innerHTML = "<span>Informe nome</span>";
+                nome.focus();
+                return;
+            }
+
+            var fone = document.getElementById("senha");
+            if (senha.value === "") {
+                document.getElementById("msgSenha").innerHTML = "<span>Informe senha</span>";
+                senha.focus();
+                return;
+            }
+
+            document.getElementsByTagName("form")[0].submit();
+        }
+    </script>
+</body>
+
+</html>

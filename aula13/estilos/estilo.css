@@ -1,0 +1,77 @@
+.container{
+    width: 400px;
+    margin: auto;
+}
+
+.entrada { /*mudei para acesso*/
+    width: 100%
+}
+
+.botoes{
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* para ficar um botao ao lado do outro*/
+}
+
+input{
+    width: 100%;
+    margin-bottom: 3px;
+    padding: 3px 2px 3px 3px;
+}
+button {
+    margin-top: 3px;
+    border: 1px solid red;
+    padding: 3px;
+    border-radius: 3px;
+    
+}
+
+.salvar{
+    background-color: whitesmoke;
+    color: aqua;
+}
+
+.salvar:hover{
+    background-color:aqua;
+    color:  whitesmoke;
+}
+
+.cancelar{
+    background-color: whitesmoke;
+    color: palevioletred;
+}
+
+.cancelar:hover{
+    background-color:palevioletred;
+    color:  whitesmoke;
+}
+
+table{
+    width: 400px;
+    margin: auto;
+    border-collapse: collapse; /*perde as bordas*/
+}
+
+thead{
+    background-color: forestgreen;
+    color: white;
+}
+
+/*efeito zebrado na tabela*/
+tbody tr:nth-child(){
+    background-color: silver;
+}
+
+tbody tr:hover{
+    background-color: aqua;
+    color: red;
+}
+
+td{
+    padding: 5px;
+}
+
+th{
+    padding: 8px;
+    text-align: left;
+}

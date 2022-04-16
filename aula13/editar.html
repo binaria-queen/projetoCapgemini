@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./SCRIPTS/classes.js"></script>
+    <link rel="stylesheet" href="./estilos/estilo.css" />
+</head>
+
+<body onload="pegarParametro()">
+    <div class="container">
+        <h1>Editar contato</h1>
+        <!--required: validacao no js-->
+        <div class="entrada">
+            <input type="text" disabled/>
+            <input type="text" placeholder="Informe nome" required />
+            <input type="text" placeholder="Informe fone" required />
+            <input type="email" placeholder="Informe email" required />
+        </div>
+
+        <div class="botoes">
+            <button onclick="gravar()" class="salvar">Salvar</button>
+            <button onclick="voltar()" class="cancelar">Cancelar</button>
+            <button onclick="apagar()" class="apagar">Apagar</button>
+        </div>
+
+    </div>
+
+    <script>
+        let ob = new Contato();
+        function pegarParametro() {
+            const urlParams = new URLSearchParams(window.location.search)
+            let idcontato = urlParams.get('id')
+            let ob = new Contato()
+            ob.consultarPeloId(idcontato, preencheForm)
+        }
+        function preencheForm(data) {
+            let obj = JSON.parse(data)
+            document.getElementsByTagName("input")[0].value = obj.id
+            document.getElementsByTagName("input")[1].value = obj.nome
+            document.getElementsByTagName("input")[2].value = obj.fone
+            document.getElementsByTagName("input")[3].value = obj.email
+        }
+        //pegou os dados
+        function gravar() {
+            var id = document.getElementsByTagName("input")[0].value
+            var nome = document.getElementsByTagName("input")[1].value
+            var fone = document.getElementsByTagName("input")[2].value
+            var email = document.getElementsByTagName("input")[3].value
+
+            let ob = new Contato(id, nome, fone, email)
+            ob.update()
+        }
+
+        function apagar() {
+            let ob = new Contato();
+            ob.excluir(document.getElementsByTagName("input")[0].value)
+        }
+
+        function voltar() {
+            window.history.back()
+        }
+    </script>
+</body>
+
+</html>

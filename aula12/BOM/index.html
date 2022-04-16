@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="window.location.href='pagina1.html'">Pagina1</button>
+    <button onclick="window.location.href='pagina2.html'">Pagina2</button>
+<hr>
+<label></label>
+</body>
+
+<script>
+    document.getElementsByTagName("label").innerHTML = `Codiname: ${window.navigator.appName}
+    Version: ${window.navigator.platform} Agente:  ${window.navigator.appCodeName} ${window.navigator.appVersion} ${window.navigator.userAgent}
+    `
+
+
+</script>
+</html>

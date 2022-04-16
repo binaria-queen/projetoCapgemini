@@ -1,0 +1,44 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Cama"
+    },
+    {
+      "id": 2,
+      "nome": "Mesa"
+    },
+    {
+      "id": 3,
+      "nome": "Banho"
+    }
+  ],
+  "produtos": [
+    {
+      "descricao": "2342",
+      "preco": "12",
+      "estoque": "23",
+      "categoria": "Cama",
+      "fornecedor": "Casas Bahia",
+      "id": 1
+    },
+    {
+      "descricao": "abajour",
+      "preco": "45,00",
+      "estoque": "13",
+      "categoria": "Mesa",
+      "fornecedor": "Soteropolitana",
+      "id": 2
+    }
+  ],
+  "fornecedores": [
+    {
+      "id": 1,
+      "nome": "Casas Bahia"
+    },
+    {
+      "id": 2,
+      "nome": "Soteropolitana"
+    }
+  ]
+}

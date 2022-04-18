@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" placeholder="Informe o email" />
+    <button onclick="validarPatternEmail()"> Comparar</button>
+
+    <script>
+        function validarPatternEmail(){
+            var email = document.getElementsByTagName("input")[0].value
+            var patternEmail = /^[a-z0-9._]+@[a-z0-9]+\.[a-z](.[a-z]+)?/i;
+                //^ é para começar ? é para dizer que o conjunto (.[a-z]+) é opcional
+            let x = patternEmail.test(email)
+            console.log(x)
+        }
+    </script>
+</body>
+</html>

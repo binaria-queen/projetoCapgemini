@@ -1,10 +1,8 @@
 import { IDaoGenerica } from "./InterfaceGenerica";
-import { Produto } from "./Produto";
+import Produto  from "./Produto";
 
-
-//essa é uma interface especifica para itens
 export default class Item implements IDaoGenerica<Item>{
-    produto: Produto;
+    produto: Produto
     preco: number;
     qtde: number;
     constructor(produto: Produto, preco: number, qtde: number){
@@ -27,4 +25,4 @@ export default class Item implements IDaoGenerica<Item>{
     alterar(objeto: Item): boolean {
         throw new Error("Method not implemented.");
     }
-}
+ }

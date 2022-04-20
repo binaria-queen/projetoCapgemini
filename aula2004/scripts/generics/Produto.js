@@ -1,31 +1,28 @@
-import { IDaoGenerica } from "./InterfaceGenerica";
-
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Produto = void 0;
 //essa é uma interface generica especifica para produto
-export default class Produto implements IDaoGenerica <Produto> {
-    descricao: string;
-    valorUnitario: number;
-    estoque: number;
-    constructor(descricao: string, valorUnitario: number, estoque: number){
+class Produto {
+    constructor(descricao, valorUnitario, estoque) {
         this.descricao = descricao;
         this.valorUnitario = valorUnitario;
         this.estoque = estoque;
     }
-    salvar(): boolean {
+    salvar() {
         throw new Error("Method not implemented.");
     }
-    excluir(id: number): boolean {
+    excluir(id) {
         throw new Error("Method not implemented.");
     }
-    consultarTodos(): Produto[] {
+    consultarTodos() {
         throw new Error("Method not implemented.");
     }
-    consultarPeloId(id: number): Produto {
+    consultarPeloId(id) {
         throw new Error("Method not implemented.");
     }
-    alterar(objeto: Produto): boolean {
+    alterar(objeto) {
         throw new Error("Method not implemented.");
     }
 }
-
-export{Produto}
+exports.default = Produto;
+exports.Produto = Produto;

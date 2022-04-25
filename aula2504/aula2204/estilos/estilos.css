@@ -1,0 +1,30 @@
+.container{
+    width: 100%; /*largura de 100%*/
+    margin: 5px; /*margem em todoas as direções*/
+    display: flex; /*um elemento ao lado do outro*/
+}
+
+table{
+    width: 300px; /*largura de 300px*/
+    margin: 5px;
+    border-collapse: collapse; /*sem as bordas*/
+}
+
+thead{
+    background-color: blue;
+    color: white;
+    text-align: left;/*alinhado a esquerda*/
+}
+
+tbody tr:nth-child(even) { /*efeito zebrado*/
+    background-color: silver;
+}
+
+tbody tr:hover {
+    background-color: aquamarine;
+    color: yellow;
+}
+
+label span {
+    color: red;
+}

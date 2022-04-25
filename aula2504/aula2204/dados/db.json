@@ -1,0 +1,28 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "descricao": "Feijão",
+      "preco": 7.89,
+      "estoque": 10
+    },
+    {
+      "id": 2,
+      "descricao": "Arroz",
+      "preco": 15,
+      "estoque": 10
+    },
+    {
+      "descricao": "Farinha",
+      "preco": 10,
+      "estoque": 150,
+      "id": 3
+    },
+    {
+      "descricao": "Macarrão",
+      "preco": 8,
+      "estoque": 15,
+      "id": 4
+    }
+  ]
+}

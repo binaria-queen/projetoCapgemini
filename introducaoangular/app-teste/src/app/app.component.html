@@ -1,0 +1,20 @@
+<h1>{{ title }}</h1> <!--Interpolação: tudo que eu criar no appcomponent.ts mostra na pagina-->
+<hr>
+<p>{{ nome }}</p>
+<p>{{ 1 + 1}}</p>
+<p>Código do cliente: {{ cliente.id }}</p>
+<p>Nome do cliente: {{ cliente.nome }}</p>
+<p>Telefone do cliente: {{ cliente.telefone }}</p>
+
+<p>{{ produto.nome }}</p>
+<p>{{ produto.descricao }}</p>
+
+<!--property bind-->
+
+<input [value]="produto.nome" />
+
+<!--event bind-->
+
+<button (click) = "trocar()">Clique aqui</button>
+<hr>
+<app-frutas></app-frutas>

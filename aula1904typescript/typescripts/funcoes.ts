@@ -1,4 +1,4 @@
-function soma(n1: number, n2: number): (number | any){
+function soma(n1: number, n2: number): (number | unknown){
     try{
         if((n1 == 0) && (n2 == 0)) {
             throw "Parametros não informados"

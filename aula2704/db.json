@@ -1,0 +1,49 @@
+{
+  "produtos": [
+    {
+      "descricao": "feijao",
+      "estoque": "25",
+      "marca": "amendoeiro",
+      "fornecedor": "jaqueline",
+      "preco": 15,
+      "id": 1
+    },
+    {
+      "descricao": "abajour",
+      "estoque": "23",
+      "marca": "amendoeiro",
+      "fornecedor": "jaqueline",
+      "preco": "",
+      "id": 2
+    },
+    {
+      "descricao": "Trigo",
+      "preco": "12.55",
+      "estoque": "1000",
+      "id": 3
+  },
+  {
+      "descricao": "Arroz",
+      "preco": "12.55",
+      "estoque": "2",
+      "id": 4
+  }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Jaqueline",
+      "email": "jaque@gmail.com",
+      "senha": "123",
+      "perfil": "ADM"
+    },
+    {
+      "id": 2,
+      "nome": "Aninha",
+      "email": "ana@gmail.com",
+      "senha": "123",
+      "perfil": "USUARIO"
+    }
+  ],
+  "carrinhos": []
+}

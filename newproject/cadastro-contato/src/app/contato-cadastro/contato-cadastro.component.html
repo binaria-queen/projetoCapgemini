@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Cadastro de Contatos</h1>
+    <form #f="ngForm" (ngSubmit)="saveContato(f.value)">
+        <input type="text" ngModel name="nome" placeholder="Informe nome" />
+        <input type="email" ngModel name="email" placeholder="Informe email" />
+        <input type="fone" ngModel name="fone" placeholder="Informe fone" />
+        <div class="botoes">
+            <button class="btsalva">Salvar</button>
+            <button class="btcancela">Cancelar</button>
+        </div>
+    </form>
+    <label> {{ msg }} </label>
+</div>
+

@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+/* Start Global rules */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* End Global rules */
+
+/* Start body rules */
+body {
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #2e7f59 100%);
+background-image: linear-gradient(to top, #080c0c 0%, #2e7f32 50%);
+background-attachment: fixed;
+  background-repeat: no-repeat;
+
+   
+}
+
+
+
+
+form {
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-225deg, #daffbe 50%, #0f640249 50%);
+}
+/* form Container */
+form .con {
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  
+      margin: 0 auto;
+}
+
+
+header h2 {
+    font-size: 200%;
+    font-family: 'Playfair Display', serif;
+    color: #000000;
+    
+}
+
+
+
+
+input:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+}
+
+button {
+    display: inline-block;
+    color: white;
+  
+    width: 280px;
+    height: 50px;
+  
+    padding: 0 20px;
+    background: #fff;
+    border-radius: 5px;
+    
+    outline: none;
+    border: none;
+  
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+    
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+}
+/* Submits */
+.submits {
+    width: 48%;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+
+
+/*     Sign Up button  */
+.sign-up {
+    background: rgba(127, 246, 103, 0.315);
+    color: wheat    
+}
+
+
+/* buttons hover */
+button:hover {
+    transform: translatey(3px);
+    box-shadow: none;
+    background-color: rgb(72, 234, 115);
+    
+}
+
+/* buttons hover Animation */
+button:hover {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+}
+

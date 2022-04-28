@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* Start Global rules */
 * {
-    padding: 0;
-    margin: 0;
+    padding: 50;
+    margin: 4px;
     box-sizing: border-box;
 }
 /* End Global rules */
@@ -13,22 +13,23 @@ body {
 background-image: linear-gradient(to top, #080c0c 0%, #2e7f32 50%);
 background-attachment: fixed;
   background-repeat: no-repeat;
-
-   
+}
+.ng-invalid {
+    color: red;
 }
 
 
 
 
 form {
-    width: 450px;
-    min-height: 500px;
+    width: 500px;
+    min-height: 50px;
     height: auto;
     border-radius: 5px;
-    margin: 2% auto;
-    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
-    padding: 2%;
-    background-image: linear-gradient(-225deg, #daffbe 50%, #0f640249 50%);
+    margin: 50px auto;
+   
+    padding: 5%;
+    background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.889) 50%, #023664b8 50%);
 }
 /* form Container */
 form .con {
@@ -64,14 +65,12 @@ button {
     display: inline-block;
     color: white;
   
-    width: 280px;
+    width: 150px;
     height: 50px;
   
-    padding: 0 20px;
-    background: #fff;
+    background: black;
     border-radius: 5px;
     
-    outline: none;
     border: none;
   
     cursor: pointer;
@@ -101,7 +100,7 @@ button {
 button:hover {
     transform: translatey(3px);
     box-shadow: none;
-    background-color: rgb(72, 234, 115);
+    background-color: rgba(6, 78, 155, 0.775);
     
 }
 

@@ -7,17 +7,22 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./cadastro-produto.component.css']
 })
 export class CadastroProdutoComponent implements OnInit {
+  produtos: any;
 
-  constructor(private serviceProduto: ProdutoService) { }
-  msg: string = ""
-  gravar(dados:any){
-    this.serviceProduto.gravar(dados).subscribe(x => this.msg = "Produto criado com sucesso")
-  }
-  limparMsg(){
-    this.msg = "";
-  }
+  constructor(private serviceProduto: ProdutoService) {
+    this.serviceProduto.getAll().subscribe(x => this.produtos = x)
+   }
 
+  gravar(dados: any){
+     this.serviceProduto.gravar(dados).subscribe(x => window.location.reload())
+  }
+    
   ngOnInit(): void {
+  
+  }
+
+  excluir(id:any){
+     this.serviceProduto.excluir(id).subscribe(x => {window.location.reload()})
   }
 
 }

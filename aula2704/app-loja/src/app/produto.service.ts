@@ -22,4 +22,12 @@ export class ProdutoService {
     return this.http.get(`http://localhost:3000/produtos/${idproduto}`)
   }
 
+  alterar(dados:any){
+    let url = `http://localhost:3000/produtos/${dados.id}`
+    return this.http.put(url, dados)
+  }
+
+  excluir(idproduto: number){
+    return this.http.delete(`http://localhost:3000/produtos/${idproduto}`)
+  }
 }

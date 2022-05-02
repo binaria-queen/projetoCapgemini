@@ -1,33 +1,35 @@
 {
   "produtos": [
     {
-      "descricao": "feijao",
-      "estoque": "25",
-      "marca": "amendoeiro",
-      "fornecedor": "jaqueline",
+      "id": 1,
+      "descricao": "arroz branco",
       "preco": 15,
-      "id": 1
+      "estoque": "25"
     },
     {
-      "descricao": "abajour",
-      "estoque": "23",
-      "marca": "amendoeiro",
-      "fornecedor": "jaqueline",
-      "preco": "",
-      "id": 2
+      "id": 2,
+      "descricao": "manga",
+      "preco": "25.00",
+      "estoque": "23"
     },
     {
+      "id": 3,
       "descricao": "Trigo",
       "preco": "12.55",
-      "estoque": "1000",
-      "id": 3
-  },
-  {
+      "estoque": "1000"
+    },
+    {
+      "id": 4,
       "descricao": "Arroz",
       "preco": "12.55",
-      "estoque": "2",
-      "id": 4
-  }
+      "estoque": "2"
+    },
+    {
+      "descricao": "bicicleta",
+      "preco": "450",
+      "estoque": "10",
+      "id": 5
+    }
   ],
   "usuarios": [
     {

@@ -14,9 +14,15 @@ export class AppComponent {
       user = JSON.parse(user)
       this.userLogado = user
     }
+    console.log(this.userLogado.email != '')
   }
   constructor(){
     this.pegarPerfilUsuarioConectado();
+  }
+
+  logout(){
+    localStorage.removeItem("userConectado")
+    window.location.reload()
   }
 
 }

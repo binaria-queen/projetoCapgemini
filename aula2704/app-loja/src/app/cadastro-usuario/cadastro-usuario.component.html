@@ -1,20 +1,102 @@
 <div class="container">
-    
-    <form>
-        <header class="header-form">
-            <h1> Cadastro de Usuário</h1>
-        </header>
-        <input class="form-control" type="text" ngModel name="nome" placeholder="Informe nome" />
-        <input class="form-control" type="email" ngModel name="email" placeholder="Informe e-mail" />
-        <input class="form-control" type="password" ngModel name="senha" placeholder="Informe senha" />
-        <input class="form-control" type="text" ngModel name="gestante" />
-        <input class="form-control" type="date" ngModel name="nome" placeholder="Informe data de nascimento" />
-        <input class="form-control" type="text" ngModel name="PCD" />
-        <button name= "botao" class="btn btn-dark">Salvar</button>
-    </form>
-    <p>
-      
-    </p>
-</div>
-<router-outlet></router-outlet>
+    <h1 class="text-center">Cadastro de usuário</h1>
+    <form #f="ngForm" (ngSubmit)="gravar(f.value)">
+        <input required minlength="5" class="form-control" type="text" #fNome="ngModel" ngModel name="nome" placeholder="Informe nome" />
+        <div *ngIf="fNome.invalid" class="ng-invalid text-danger">
+            Informe seu nome
+        </div>
 
+        <input required class="form-control" type="text" #fEmail="ngModel" ngModel name="email" placeholder="Informe email" />
+        <div *ngIf="fEmail.invalid" class="ng-invalid text-danger">
+            Informe seu e-mail
+        </div>
+
+        <input required class="form-control" type="text" #fSenha="ngModel" ngModel name="senha" placeholder="Informe senha" />
+        <div *ngIf="fSenha.invalid" class="ng-invalid text-danger">
+            Informe senha válida
+        </div>
+        <div>
+            <label for="formGroupExampleInput">Você está gestante?</label>
+            <br>
+            <div class="form-check form-check-inline">
+                <input required class="form-check-input" type="radio" #fGestante="ngModel" ngModel name="gestante" checked />
+                <label class="form-check-label" for="exampleRadios1">
+                    Sim
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input required class="form-check-input" type="radio" #fGestante="ngModel" ngModel name="gestante" checked />
+                <label class="form-check-label" for="exampleRadios1">
+                    Não
+                </label>
+            </div>
+            <div *ngIf="fGestante.invalid" class="ng-invalid text-danger">
+                Marque uma opção
+            </div>
+        </div>
+
+        <input required class="form-control" type="date" #fNascimento="ngModel" ngModel name="nascimento" placeholder="Informe data de nascimento" />
+        <div *ngIf="fNascimento.invalid" class="ng-invalid text-danger">
+            Informe data de nascimento
+        </div>
+
+        <div>
+            <label for="formGroupExampleInput">Você É PCD?</label>
+            <br>
+            <div class="form-check form-check-inline">
+                <input required class="form-check-input" type="radio" #fPcd="ngModel" ngModel name="pcd" checked />
+                <label class="form-check-label" for="exampleRadios1">
+                    Sim
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input required class="form-check-input" type="radio" #fGestante="ngModel" ngModel name="pcd" checked />
+                <label class="form-check-label" for="exampleRadios1">
+                    Não
+                </label>
+            </div>
+            <div *ngIf="fPcd.invalid" class="ng-invalid text-danger">
+                Marque uma opção
+            </div>
+        </div>
+
+        <a routerLink="#">Termos de uso</a>
+
+        <div class="mt-3 mb-3">
+            <button [disabled]="f.invalid" class="btn btn-primary me-2">Salvar</button>
+            <button type="reset" class="btn btn-danger">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <table class="table">
+        <thead class="bg-primary">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Gestante</th>
+                <th>Nascimento</th>
+                <th>PCD</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usuarios">
+                <td> {{ user.id }}</td>
+                <td> {{ user.nome }}</td>
+                <td> {{ user.email }}</td>
+                <td> {{ user.senha }}</td>
+                <td> {{ user.gestante }}</td>
+                <td> {{ user.nascimento }}</td>
+                <td> {{ user.pcd}} </td>
+                <td> <a [routerLink]="['/usuarios', user.id]"><i class="material-icons">mode_edit</i></a></td>
+                <td> <i class= "material-icons text-danger" (click)="excluir(user.id)" ng-click="myAngularFunctionWithinController()" style="cursor: hand;cursor: pointer">delete</i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+     

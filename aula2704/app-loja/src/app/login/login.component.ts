@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
           this.usuarioConectado.senha = dados[i].senha
           this.usuarioConectado.perfil = dados[i].perfil
           this.gravarDadosLocalStorage()
+          window.location.reload()
        }
+
      }
   }
   //simular authguard

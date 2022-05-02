@@ -8,6 +8,15 @@ import { UsuarioService } from '../usuario.service';
 })
 export class CadastroUsuarioComponent implements OnInit {
   usuarios: any;
+
+  usuarioConectado = {
+    id: 0,
+    nome: "",
+    email: "",
+    senha: "",
+    perfil: ""
+  }
+
   constructor(private serviceUsuario: UsuarioService) {
     this.serviceUsuario.getAll().subscribe(x => this.usuarios = x)
    }

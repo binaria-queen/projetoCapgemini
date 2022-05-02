@@ -1,0 +1,10 @@
+{
+  "produtos": [
+    {
+      "id": 0,
+      "descricao": "macarrão parafuso",
+      "preco": "7.85",
+      "estoque": 9.8
+    }
+  ]
+}

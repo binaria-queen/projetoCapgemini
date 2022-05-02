@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsuarioService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   gravar(dados: any){
     let url = 'http://localhost:3000/usuarios'

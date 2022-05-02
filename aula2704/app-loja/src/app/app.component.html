@@ -3,8 +3,13 @@
   <a *ngIf="userLogado.perfil=='ADM'" class="btn btn-outline-primary m-2" routerLink="cadastroproduto">Produto</a>
   <a *ngIf="userLogado.perfil=='ADM' || userLogado.perfil=='USUARIO'" class="btn btn-outline-primary m-2" routerLink="carrinho">Carrinho</a>
   <a *ngIf="!userLogado.email" class="btn btn-outline-primary m-2" routerLink="login">Login</a>
-  <a *ngIf="userLogado.email" class="btn btn-outline-primary m-2"(click)= "logout()">Logout</a>
-  <label *ngIf="!userLogado.email"class="bg-white">{{ userLogado.email }}</label>
-
+  <label *ngIf="userLogado.email" class="bg-white">{{ userLogado.email }}</label>
+  <a *ngIf="userLogado.email" class="btn btn-outline-primary m-1"(click)= "logout()">Logout</a>
+  
 </nav>
 <router-outlet></router-outlet>
+
+
+<!--*ngIf="!userLogado.email" login-->
+<!--*ngIf="userLogado.email" Logout-->
+<!-- *ngIf="!userLogado.email" -->

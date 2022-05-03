@@ -1,3 +1,61 @@
 <div class="container">
-    <h1>aksdufiauwnbfviabvui</h1>
+    <h1 class="text-center mb-3 mt-3">Cadastro de Clientes</h1>
+    <form #f="ngForm" (ngSubmit)="gravar(f.value)">
+        <label>Nome completo</label>
+        <input required minlength="5" class="form-control shadow p-2 mb-1 bg-white rounded" type="text" #fnome="ngModel" ngModel name="nome" placeholder="Informe nome" />
+        <div *ngIf="fnome.errors?.['required']" class="ng-invalid text-danger">
+            Informe seu nome
+        </div>
+
+        <div *ngIf="fnome.errors?.['minlength']" class="ng-invalid text-danger">
+            Informe no minimo 5 caracteres
+        </div>
+        <label>E-mail</label>
+        <input required class="form-control shadow p-2 mb-1 bg-white rounded" type="email" #femail="ngModel" ngModel name="email" placeholder="Informe email" />
+        <div *ngIf="femail.invalid" class="ng-invalid text-danger">
+            Informe email válido
+        </div>
+        <label>Senha</label>
+        <input required class="form-control shadow p-2 mb-1 bg-white rounded" type="password" #fsenha="ngModel" ngModel name="senha" placeholder="Informe senha" />
+        <div *ngIf="fsenha.invalid" class="ng-invalid text-danger">
+            Informe sua senha
+        </div>
+        <label>Data de nascimento</label>
+        <input required class="form-control shadow p-2 mb-1 bg-white rounded" type="date" #fnascimento="ngModel" ngModel name="nascimento" placeholder="Informe data de nascimento" />
+        <div *ngIf="fnascimento.invalid" class="ng-invalid text-danger">
+            Informe sua data de nascimento
+        </div>
+
+        <div class="mt-3 mb-3">
+            <button class="btn btn-info me-2 shadow p-2">Salvar</button>
+            <button type="reset" class="btn btn-dark me-2 shadow p-2">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <table class="table">
+        <thead class="bg-dark">
+            <tr>
+                <th class="bg-white">Id</th>
+                <th class="bg-white">Nome</th>
+                <th class="bg-white">Email</th>
+                <th class="bg-white">Senha</th>
+                <th class="bg-white">Nascimento</th>
+                <th class="bg-white">Editar</th>
+                <th class="bg-white">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usuarios">
+                <td> {{ user.id }}</td>
+                <td> {{ user.nome }}</td>
+                <td> {{ user.email }}</td>
+                <td> {{ user.senha }}</td>
+                <td> {{ user.nascimento }}</td>
+                <td> <a [routerLink]="['/usuarios',user.id]"><i class="material-icons text-info">mode_edit</i></a></td>
+                <td> <i role="button" class="material-icons text-danger" (click)="excluir(user.id)">delete</i></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

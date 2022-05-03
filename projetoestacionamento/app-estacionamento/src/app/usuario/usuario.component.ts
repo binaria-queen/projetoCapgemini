@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceUsuarioService } from '../service-usuario.service';
+
 
 @Component({
   selector: 'app-usuario',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.css']
 })
 export class  UsuarioComponent implements OnInit {
+  usuarios: any;
 
-  constructor() { }
+  constructor(private serviceUsuario: ServiceUsuarioService) {
+    this.serviceUsuario.getAll().subscribe(x => this.usuarios = x)
+   }
+
+   gravar(dados: any){
+     this.serviceUsuario.gravar(dados).subscribe(x => {window.location.reload()})
+   }
 
   ngOnInit(): void {
+  }
+
+  excluir(id: any){
+    this.serviceUsuario.excluir(id).subscribe(x => {window.location.reload()})
   }
 
 }

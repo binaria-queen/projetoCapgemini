@@ -8,12 +8,19 @@ export class ServiceUsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  salvar(data:any){
-    let url = 'http://localhost:3000/contato';
-    return this.http.post(url,data);
-  }
   consultarTodos(){
-    let url = 'http://localhost:3000/contato';
+    let url = 'http://localhost:8081/usuarios';
     return this.http.get(url);
+  }
+  getAll(){
+    let url = 'http://localhost:8081/usuarios';
+   return this.http.get(url)
+  }
+  gravar(dados: any){
+    let url = 'http://localhost:8081/usuarios';
+    return this.http.post(url,dados)
+  }
+  excluir(idusuarios: number){
+    return this.http.delete(`http://localhost:8081/usuarios/${idusuarios}`)
   }
 }

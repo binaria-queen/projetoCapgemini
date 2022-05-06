@@ -34,7 +34,7 @@ app.get('/criartabelausuarios', (req, res) => {
         if (err) {
             return res.status(401).send('Conexão não autorizada')
         }
-        var sql = 'CREATE TABLE usuarios ( id numeric, nome varchar(100), email varchar(50), senha varchar(200), datanascimento varchar(10), gestante nchar(1),  pcd nchar(1), perfil varchar(15))'
+        var sql = 'CREATE TABLE usuarios ( id serial primary key, nome varchar(100), email varchar(50), senha varchar(200), datanascimento varchar(10), gestante nchar(1),  pcd nchar(1), perfil varchar(15))'
         client.query(sql, (error, result) => {
             if (error) {
                 return res.status(401).send('Operação não autorizada')
@@ -53,13 +53,13 @@ app.post('/usuarios', (req, res) => {
         var sql = 'SELECT * FROM usuarios WHERE email = $1'
         client.query(sql, [req.body.email], (error, result) => {
             if (error) {
-                return req.status(401).send('Operaçao nao autorizada')
+                return res.status(401).send('Operaçao nao autorizada')
             }
             if (result.rowCount > 0) {
                 return res.status(200).send('Registro já existe')
             }
-            var sql = 'INSERT INTO usuarios(id, nome, email, senha, dataNascimento, gestante, pcd, perfil) values($1, $2, $3, $4, $5, $6, $7, $8)'
-            let values = [req.body.id, req.body.nome, req.body.email, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil]
+            var sql = 'INSERT INTO usuarios(nome, email, senha, dataNascimento, gestante, pcd, perfil) values($1, $2, $3, $4, $5, $6, $7)'
+            let values = [req.body.nome, req.body.email, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil]
             client.query(sql, values, (error2, result2) => {
                 if (error2) {
                     return res.status(401).send('Operaçao nao autorizada')
@@ -85,29 +85,29 @@ app.delete('/usuarios/:email', (req, res) => {
     })
 })
 
-app.put('/usuarios/:email', (req,res) => {
+app.put('/usuarios/:email', (req, res) => {
     pool.connect((err, client) => {
-        if(err) {
+        if (err) {
             return res.status(401).send('Conexão não autorizada')
         }
         var sql = "SELECT * FROM usuarios WHERE email = $1"
         client.query(sql, [req.params.email], (error, result) => {
-            if(error) {
+            if (error) {
                 return res.status(401).send('Operação não permitida')
             }
-            if(result.rowCount > 0) {
-                var sql = 'UPDATE usuarios SET id=$1, nome=$2, senha=$3, dataNascimento=$4, gestante=$5, pcd=$6, perfil=$7 WHERE email=$8'
-                let values = [req.body.id, req.body.nome, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil, req.params.email]
+            if (result.rowCount > 0) {
+                var sql = 'UPDATE usuarios SET nome=$1, senha=$2, dataNascimento=$3, gestante=$4, pcd=$5, perfil=$6 WHERE email=$7'
+                let values = [req.body.nome, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil, req.params.email]
                 client.query(sql, values, (error2, result2) => {
-                    if(error2) {
+                    if (error2) {
                         return res.status(401).send('Operação não permitida')
                     }
-                    if(result2.rowCount > 0){
+                    if (result2.rowCount > 0) {
                         return res.status(200).send('Registro alterado com sucesso')
                     }
                 })
-            }else{
-                res.status(200).send({message: "Usuário não encontrado"})
+            } else {
+                res.status(200).send({ message: "Usuário não encontrado" })
             }
         })
     })

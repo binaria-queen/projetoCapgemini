@@ -34,33 +34,32 @@
 
         <label>Data de nascimento</label>
         <input required class="form-control shadow p-2 mb-1 bg-white rounded" type="date" #fnascimento="ngModel" ngModel
-            name="nascimento" placeholder="Informe data de nascimento" />
+            name="datanascimento" placeholder="Informe data de nascimento" />
         <div *ngIf="fnascimento.invalid" class="ng-invalid text-danger">
             Informe sua data de nascimento
         </div>
         <div>
             <br>
             <h5 class="text-success">As duas perguntas a seguir são destinadas a vagas especiais.</h5>
+
             <h6>Você está gestante?</h6>
             <div class="wrapper">
                 <div class="form-group">
-                    <input class="radio" name="theradio" id="radio1" type="radio">
-                    <label for="radio1">Sim</label>
+                    <label for="radio1"> <input class="radio" name="gestante" id="radio1" type="radio" #fgestante="ngModel" value="S" name="gestante" ngModel> Sim </label>
                 </div>
                 <div class="form-group">
-                    <input class="radio" name="theradio" id="radio2" type="radio">
-                    <label for="radio2">Não</label>
+                    <label for="radio2"><input class="radio" name="theradio" id="radio2" type="radio" value="N"  name="gestante" ngModel> Não</label>
+                
                 </div>
             </div>
+
             <h6>Você é uma pessoa com algum tipo de deficiência?</h6>
             <div class="wrapper">
                 <div class="form-group">
-                    <input class="radio" name="theradio" id="radio3" type="radio">
-                    <label for="radio1">Sim</label>
+                    <label for="radio3"><input class="radio" name="pcd" id="radio3" type="radio" #fpcd="ngModel" value="S" name="pcd" ngModel>Sim</label>
                 </div>
                 <div class="form-group">
-                    <input class="radio" name="theradio" id="radio4" type="radio">
-                    <label for="radio2">Não</label>
+                    <label for="radio4"><input class="radio" name="theradio" id="radio4" type="radio" value="N" name="pcd" ngModel>Não</label>
                 </div>
             </div>
         </div>
@@ -71,3 +70,34 @@
         </div>
     </form>
 </div>
+
+<div>
+    <table class="table">
+        <thead class="bg-dark">
+            <tr>
+                <th class="bg-white">Id</th>
+                <th class="bg-white">Nome</th>
+                <th class="bg-white">Email</th>
+                <th class="bg-white">Senha</th>
+                <th class="bg-white">Nascimento</th>
+                <th class="bg-white">Gestante</th>
+                <th class="bg-white">PCD</th>
+                <th class="bg-white">Editar</th>
+                <th class="bg-white">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usuarios">
+                <td> {{ user.id }}</td>
+                <td> {{ user.nome }}</td>
+                <td> {{ user.email }}</td>
+                <td> {{ user.senha }}</td>
+                <td> {{ user.datanascimento }}</td>
+                <td> {{ user.gestante }} </td>
+                <td> {{ user.pcd }} </td>
+                <td> <a [routerLink]="['/usuarios',user.id]"><i class="material-icons text-info">mode_edit</i></a></td>
+                <td> <i role="button" class="material-icons text-danger" (click)="excluir(user.id)">delete</i></td>
+            </tr>
+        </tbody>
+    </table>
+</div> 

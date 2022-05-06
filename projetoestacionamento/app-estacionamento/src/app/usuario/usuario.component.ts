@@ -15,6 +15,7 @@ export class  UsuarioComponent implements OnInit {
    }
 
    gravar(dados: any){
+     console.log(dados)
      this.serviceUsuario.gravar(dados).subscribe(x => {window.location.reload()})
    }
 
@@ -24,5 +25,5 @@ export class  UsuarioComponent implements OnInit {
   excluir(id: any){
     this.serviceUsuario.excluir(id).subscribe(x => {window.location.reload()})
   }
-
+  
 }

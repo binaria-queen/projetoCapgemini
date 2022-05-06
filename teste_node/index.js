@@ -34,7 +34,7 @@ app.get('/criartabelausuarios', (req, res) => {
         if (err) {
             return res.status(401).send('Conexão não autorizada')
         }
-        var sql = 'CREATE TABLE usuarios ( id numeric, nome varchar(100), email varchar(50), senha varchar(200), dataNascimento varchar (10), gestante varchar(1),  pcd varchar(1), perfil varchar(15))'
+        var sql = 'CREATE TABLE usuarios ( id numeric, nome varchar(100), email varchar(50), senha varchar(200), datanascimento varchar(10), gestante nchar(1),  pcd nchar(1), perfil varchar(15))'
         client.query(sql, (error, result) => {
             if (error) {
                 return res.status(401).send('Operação não autorizada')
@@ -59,7 +59,7 @@ app.post('/usuarios', (req, res) => {
                 return res.status(200).send('Registro já existe')
             }
             var sql = 'INSERT INTO usuarios(id, nome, email, senha, dataNascimento, gestante, pcd, perfil) values($1, $2, $3, $4, $5, $6, $7, $8)'
-            let values = [req.body.id, req.body.nome, req.body.email, req.body.senha, req.body.nascimento, req.body.gestante, req.body.pcd, req.body.perfil]
+            let values = [req.body.id, req.body.nome, req.body.email, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil]
             client.query(sql, values, (error2, result2) => {
                 if (error2) {
                     return res.status(401).send('Operaçao nao autorizada')
@@ -97,7 +97,7 @@ app.put('/usuarios/:email', (req,res) => {
             }
             if(result.rowCount > 0) {
                 var sql = 'UPDATE usuarios SET id=$1, nome=$2, senha=$3, dataNascimento=$4, gestante=$5, pcd=$6, perfil=$7 WHERE email=$8'
-                let values = [req.body.id, req.body.nome, req.body.senha, req.body.nascimento, req.body.gestante, req.body.pcd, req.body.perfil, req.params.email]
+                let values = [req.body.id, req.body.nome, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil, req.params.email]
                 client.query(sql, values, (error2, result2) => {
                     if(error2) {
                         return res.status(401).send('Operação não permitida')

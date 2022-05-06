@@ -14,7 +14,9 @@ export class  UsuarioComponent implements OnInit {
     this.serviceUsuario.getAll().subscribe(x => this.usuarios = x)
    }
 
+
    gravar(dados: any){
+     dados = {...dados, perfil: 'USUARIO'}
      console.log(dados)
      this.serviceUsuario.gravar(dados).subscribe(x => {window.location.reload()})
    }

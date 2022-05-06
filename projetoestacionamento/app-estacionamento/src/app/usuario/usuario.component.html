@@ -12,7 +12,7 @@
         </div>
 
         <label>E-mail</label>
-        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="30"
             class="form-control shadow p-2 mb-1 bg-white rounded" type="email" #femail="ngModel" ngModel name="email"
             placeholder="Informe email" />
         <div *ngIf="femail.errors?.['required']" class="ng-invalid text-danger">
@@ -48,7 +48,7 @@
                     <label for="radio1"> <input class="radio" name="gestante" id="radio1" type="radio" #fgestante="ngModel" value="S" name="gestante" ngModel> Sim </label>
                 </div>
                 <div class="form-group">
-                    <label for="radio2"><input class="radio" name="theradio" id="radio2" type="radio" value="N"  name="gestante" ngModel> Não</label>
+                    <label for="radio2"><input class="radio" name="theradio" id="radio2" type="radio" value="N"  name="gestante" ngModel> Não </label>
                 
                 </div>
             </div>
@@ -56,10 +56,10 @@
             <h6>Você é uma pessoa com algum tipo de deficiência?</h6>
             <div class="wrapper">
                 <div class="form-group">
-                    <label for="radio3"><input class="radio" name="pcd" id="radio3" type="radio" #fpcd="ngModel" value="S" name="pcd" ngModel>Sim</label>
+                    <label for="radio3"><input class="radio" name="pcd" id="radio3" type="radio" #fpcd="ngModel" value="S" name="pcd" ngModel> Sim </label>
                 </div>
                 <div class="form-group">
-                    <label for="radio4"><input class="radio" name="theradio" id="radio4" type="radio" value="N" name="pcd" ngModel>Não</label>
+                    <label for="radio4"><input class="radio" name="theradio" id="radio4" type="radio" value="N" name="pcd" ngModel> Não </label>
                 </div>
             </div>
         </div>

@@ -1,20 +1,21 @@
 const express = require('express')
 const app = express()
-var cors = require('cors')
 
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+const cors = require('cors')
+app.use(cors())
+
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 var pg = require('pg')
-var consString = "postgres://mmjlwclmvgfjxk:05cc991fb507717dcc31a1120dc2f513e1f6612ae5c13e6471c848f240dbbc1e@ec2-44-196-223-128.compute-1.amazonaws.com:5432/d19jfnmkuu8rsf"
+var consString = process.env.DATABASE_URL;
+const login = require('./middleware/login')
 
 const pool = new pg.Pool({ connectionString: consString, ssl: { rejectUnauthorized: false } })
 
-//var dados = require('./dbusuarios')
-//esse middleware so vai aceitar o json 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
 
-app.use(cors())
-
-//pegar os usuários
 app.get('/usuarios', (req, res) => {
     pool.connect((err, client) => {
         if (err) {
@@ -58,18 +59,63 @@ app.post('/usuarios', (req, res) => {
             if (result.rowCount > 0) {
                 return res.status(200).send('Registro já existe')
             }
-            var sql = 'INSERT INTO usuarios(nome, email, senha, dataNascimento, gestante, pcd, perfil) values($1, $2, $3, $4, $5, $6, $7)'
-            let values = [req.body.nome, req.body.email, req.body.senha, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil]
-            client.query(sql, values, (error2, result2) => {
-                if (error2) {
-                    return res.status(401).send('Operaçao nao autorizada')
+            bcrypt.hash(req.body.senha, 10, (error1, hash) => {
+                if (error1) {
+                    return res.status(500).send({
+                        message: "Erro de autenticação",
+                        erro: error1.message
+                    })
                 }
-                res.status(201).send('Criado com sucesso')
+                var sql = 'INSERT INTO usuarios(nome, email, senha, dataNascimento, gestante, pcd, perfil) values($1, $2, $3, $4, $5, $6, $7)'
+                let values = [req.body.nome, req.body.email, hash, req.body.datanascimento, req.body.gestante, req.body.pcd, req.body.perfil]
+                client.query(sql, values, (error2, result2) => {
+                    if (error2) {
+                        return res.status(403).send('Operaçao nao autorizada')
+                    }
+                    res.status(201).send('Criado com sucesso')
+                })
             })
         })
-
     })
 })
+//token gestante, pcd, idoso
+app.post('/usuarios/login', (req, res) => {
+    pool.connect((err, client) => {
+            if (err) {
+                return res.status(401).send("Conexão não autorizada")
+            }
+            client.query('SELECT * FROM usuarios WHERE email = $1', [req.body.email], (err, result) => {
+                if (err) {
+                    return res.status(401).send("Operação não permitida")
+                }
+                if (result.rowCount > 0) {
+                //criptografar a senha enviada e comparar com a recuperada no banco de dados
+                bcrypt.compare(req.body.senha, result.rows[0].senha, (error, results) => {
+                    if (error) {
+                        return res.status(401).send({
+                            message: "Falha na autenticação"
+                        })
+                    }
+                    if (results) {
+                        let token = jwt.sign({
+                            email: result.rows[0].email,
+                            perfil: result.rows[0].perfil
+                        },
+                        process.env.JWTKEY, { expiresIn: '1h'})
+                        return res.status(200).send({
+                            message: "Conectado com sucesso",
+                            token: token
+                        })
+                    }
+                })
+                } else {
+                    return res.status(200).send({
+                        message: "Usuário ou senha incorretos"
+                    })
+                } 
+            })
+        })
+    })
 
 app.delete('/usuarios/:email', (req, res) => {
     pool.connect((err, client) => {
@@ -84,7 +130,7 @@ app.delete('/usuarios/:email', (req, res) => {
         })
     })
 })
-
+//criptografar a senha
 app.put('/usuarios/:email', (req, res) => {
     pool.connect((err, client) => {
         if (err) {
